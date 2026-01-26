@@ -8,6 +8,12 @@ export const COLORS = {
   border: "#D5DBDB", // Borders
   success: "#28B463",
   danger: "#E74C3C",
+  Primary: "#00897B",
+  Secondary: "#B2DFDB", // (Mint)
+  Background: "#F5F7FA",
+  MEDIUM_BLUE: "#1E88E5", // Trusted medical blue
+  BLUE_DARK: "#1565C0",
+  BLUE_LIGHT: "#42A5F5", // (Light Gray)
 };
 
 export const SPACING = {
