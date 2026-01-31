@@ -1,5 +1,5 @@
 import { StyleSheet, Dimensions } from "react-native";
-import { COLORS } from "../../.././src/Constant/Theme";
+import { COLORS } from "../Constant/Theme";
 const { height } = Dimensions.get("window");
 
 export const styles = StyleSheet.create({
@@ -70,6 +70,7 @@ export const styles = StyleSheet.create({
     height: height * 0.25,
     borderWidth: 1,
     borderRadius: 10,
+    backgroundColor: COLORS.MEDIUM_BLUE,
   },
   LoadMoreTouchableOpacticty: {
     marginTop: "20",

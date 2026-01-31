@@ -1,12 +1,11 @@
 import { View, Text } from "react-native";
-import React from "react";
+import { DoctorCard } from "../../src/Components/DoctorCard";
+import { useContext } from "react";
+import { AppContext } from "../../src/Context/AppContext";
 
 const Doctors = () => {
-  return (
-    <View>
-      <Text>Doctor Cards Page</Text>
-    </View>
-  );
+  const { GetDoctorCards } = useContext(AppContext);
+  return <DoctorCard Data={GetDoctorCards} />;
 };
 
 export default Doctors;

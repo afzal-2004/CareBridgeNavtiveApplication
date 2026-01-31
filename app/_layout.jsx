@@ -3,14 +3,17 @@ import { View, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import { COLORS, SPACING } from "@/src/Constant/Theme";
+import { ContextProvider } from "../src/Context/ContextProvider";
 
 export default function RootLayout() {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "black" }}>
-      <StatusBar style="light" />
-      <View style={styles.container}>
-        <Stack screenOptions={{ headerShown: false }} />
-      </View>
+      <ContextProvider>
+        <StatusBar style="light" />
+        <View style={styles.container}>
+          <Stack screenOptions={{ headerShown: false }} />
+        </View>
+      </ContextProvider>
     </SafeAreaView>
   );
 }
