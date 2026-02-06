@@ -78,3 +78,62 @@ export const styles = StyleSheet.create({
     width: "100%",
   },
 });
+export const DoctorStyles = StyleSheet.create({
+  filtermain: {
+    backgroundColor: COLORS.BLUE_DARK,
+    width: "100%",
+    height: height * 0.05,
+    padding: 4,
+    display: "flex",
+    flexDirection: "row-reverse",
+  },
+  TextColor: {
+    color: "white",
+    fontWeight: "500",
+    fontSize: 20,
+  },
+  filterOptionView: {
+    marginTop: height * 0.37,
+    position: "absolute",
+    zIndex: 10,
+    width: "80%",
+    marginLeft: "10%",
+    height: height * 0.4,
+    display: "flex",
+    flexDirection: "row",
+  },
+  Filtercard: {
+    display: "flex",
+    flexDirection: "row",
+
+    height: "100%",
+  },
+  FilterCardContentlayout: {
+    backgroundColor: "#373737",
+    height: "100%",
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    // justifyContent: "space-evenly",
+    gap: 17,
+    borderRadius: 10,
+    borderWidth: 2,
+    justifyContent: "flex-start",
+  },
+  filtervalueStyle: {
+    fontWeight: "500",
+    fontSize: 15,
+    color: "white",
+    paddingLeft: 10,
+    textTransform: "uppercase",
+  },
+  selectedOption: {
+    backgroundColor: COLORS.BLUE_LIGHT,
+    fontWeight: "500",
+    fontSize: 15,
+    color: "white",
+    padding: 5,
+    paddingLeft: 10,
+    textTransform: "uppercase",
+  },
+});

@@ -13,7 +13,8 @@ export const COLORS = {
   Background: "#F5F7FA",
   MEDIUM_BLUE: "#1E88E5", // Trusted medical blue
   BLUE_DARK: "#1565C0",
-  BLUE_LIGHT: "#42A5F5", // (Light Gray)
+  BLUE_LIGHT: "#42A5F5",
+  VS_EDITORTHEME: "373737", // (Light Gray)
 };
 
 export const SPACING = {

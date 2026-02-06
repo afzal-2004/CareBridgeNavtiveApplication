@@ -1,5 +1,6 @@
 import { Text, View, FlatList, Image, TouchableOpacity } from "react-native";
 import { styles } from "../Stylessheet/HomeStyle";
+import { Link } from "expo-router";
 
 export const DoctorCard = ({ Data }) => {
   return (
@@ -12,10 +13,13 @@ export const DoctorCard = ({ Data }) => {
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
           <View style={styles.DoctorCard}>
-            <Image
-              source={{ uri: item.avtar }}
-              style={{ width: "100%", height: "100%" }}
-            />
+            <Link href={`DoctorDetails/${Data?._id}`}>
+              <Image
+                source={{ uri: item.avtar }}
+                style={{ width: "100%", height: "100%" }}
+              />
+            </Link>
+
             {/* <Text>{item?.name}</Text> */}
           </View>
         )}

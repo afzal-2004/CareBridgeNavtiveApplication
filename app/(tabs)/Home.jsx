@@ -46,7 +46,7 @@ export default function Index() {
       </View>
 
       {/*   AtLeast  6 Doctor Cards Are Avaliable  */}
-      <DoctorCard Data={GetDoctorCards.slice(0, 6)} />
+      <DoctorCard Data={GetDoctorCards?.slice(0, 6)} />
     </View>
   );
 }
