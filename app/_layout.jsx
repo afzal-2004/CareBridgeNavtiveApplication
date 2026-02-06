@@ -12,8 +12,6 @@ export default function RootLayout() {
         <StatusBar style="light" />
         <View style={styles.container}>
           <Stack screenOptions={{ headerShown: false }} />
-
-         
         </View>
       </ContextProvider>
     </SafeAreaView>

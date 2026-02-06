@@ -137,3 +137,191 @@ export const DoctorStyles = StyleSheet.create({
     textTransform: "uppercase",
   },
 });
+
+export const DoctorDetailsStyle = StyleSheet.create({
+  imageBackgroud: {
+    backgroundColor: COLORS.MEDIUM_BLUE,
+    width: "100%",
+    height: height * 0.4,
+    borderRadius: 10,
+  },
+  CardDetailsText: {
+    fontSize: 15,
+    fontWeight: "700",
+  },
+  detailsContainer: {
+    marginTop: height * 0.03,
+    padding: 20,
+    backgroundColor: "#fff",
+  },
+
+  doctorName: {
+    fontSize: 26,
+    fontWeight: "bold",
+    color: "#1F2937",
+    marginBottom: 10,
+  },
+
+  specialityBadge: {
+    alignSelf: "flex-start",
+    backgroundColor: "#3B82F6",
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 20,
+    marginBottom: 20,
+  },
+
+  specialityText: {
+    color: "#fff",
+    fontSize: 14,
+    fontWeight: "600",
+  },
+
+  quickInfoRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 25,
+  },
+
+  infoCard: {
+    flex: 1,
+    backgroundColor: "#F3F4F6",
+    padding: 16,
+    borderRadius: 12,
+    marginHorizontal: 5,
+    alignItems: "center",
+  },
+
+  infoLabel: {
+    fontSize: 12,
+    color: "#6B7280",
+    marginBottom: 6,
+    fontWeight: "500",
+  },
+
+  infoValue: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#1F2937",
+  },
+
+  section: {
+    marginBottom: 20,
+    backgroundColor: "#F9FAFB",
+    padding: 16,
+    borderRadius: 12,
+    borderLeftWidth: 4,
+    borderLeftColor: "#3B82F6",
+  },
+
+  sectionLabel: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: "#374151",
+    marginBottom: 8,
+  },
+
+  sectionContent: {
+    fontSize: 15,
+    color: "#4B5563",
+    lineHeight: 22,
+  },
+
+  aboutText: {
+    fontSize: 15,
+    color: "#4B5563",
+    lineHeight: 24,
+    textAlign: "justify",
+  },
+
+  addressText: {
+    fontSize: 15,
+    color: "#4B5563",
+    lineHeight: 22,
+    fontStyle: "italic",
+  },
+
+  appointmentSection: {
+    marginBottom: 20,
+    backgroundColor: "#F9FAFB",
+    padding: 16,
+    borderRadius: 12,
+    borderLeftWidth: 4,
+    borderLeftColor: "#10B981",
+  },
+
+  timeSlotContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 10,
+  },
+
+  timeSlot: {
+    backgroundColor: "#fff",
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 10,
+    borderWidth: 1.5,
+    borderColor: "#D1D5DB",
+    minWidth: "22%",
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    elevation: 2,
+  },
+  SeletedTimeSlot: {
+    backgroundColor: COLORS.MEDIUM_BLUE,
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 10,
+    borderWidth: 1.5,
+    borderColor: "#D1D5DB",
+    minWidth: "22%",
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    elevation: 2,
+    color: "white",
+  },
+
+  timeText: {
+    fontSize: 14,
+    fontWeight: "600",
+    color: "#374151",
+  },
+
+  appointmentButton: {
+    backgroundColor: "#3B82F6",
+    paddingVertical: 16,
+    paddingHorizontal: 24,
+    borderRadius: 12,
+    marginTop: 25,
+    marginBottom: 20,
+    shadowColor: "#3B82F6",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 6,
+    elevation: 5,
+  },
+
+  buttonContent: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  buttonIcon: {
+    fontSize: 20,
+    marginRight: 10,
+  },
+
+  buttonText: {
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+});

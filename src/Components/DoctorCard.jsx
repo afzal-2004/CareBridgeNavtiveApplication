@@ -13,14 +13,14 @@ export const DoctorCard = ({ Data }) => {
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
           <View style={styles.DoctorCard}>
-            <Link href={`DoctorDetails/${Data?._id}`}>
+            <Link href={`/DoctorDetails/${item?._id}`}>
               <Image
                 source={{ uri: item.avtar }}
                 style={{ width: "100%", height: "100%" }}
               />
             </Link>
 
-            {/* <Text>{item?.name}</Text> */}
+           
           </View>
         )}
         ItemSeparatorComponent={() => <View style={{ height: 20 }} />}
