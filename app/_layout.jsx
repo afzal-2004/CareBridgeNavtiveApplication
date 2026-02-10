@@ -11,7 +11,10 @@ export default function RootLayout() {
       <ContextProvider>
         <StatusBar style="light" />
         <View style={styles.container}>
-          <Stack screenOptions={{ headerShown: false }} />
+          <Stack screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="auth" />
+            <Stack.Screen name="(tabs)" />
+          </Stack>
         </View>
       </ContextProvider>
     </SafeAreaView>
