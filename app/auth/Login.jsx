@@ -9,33 +9,47 @@ import { useState } from "react";
 import { router } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { Loginstyles } from "../../src/Stylessheet/AuthStyle";
-import { BaseApi } from "../../src/api/Api";
+import DataService from "../../src/api/Api";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("09520752384");
+  const [password, setPassword] = useState("123");
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleLogin = () => {
-    if (!email || !password) {
-      ToastAndroid.show("Please enter all fields", ToastAndroid.TOP);
-
+  const handleLogin = async () => {
+    try {
+      if (!email || !password) {
+        ToastAndroid.show("Please enter all fields", ToastAndroid.TOP);
+        return;
+      }
       const Payload = {
         emailOrMobile: email,
         Password: password,
       };
-      try {
-        const res = BaseApi.CustomerLogin(Payload);
-        console.log(
-          "This is My Responce Come From the Login Api ",
-          JSON.stringify(res),
-        );
-      } catch (error) {}
-      return;
-    }
+      // console.log("This is Payload i am Sending In backend Side ", Payload);
+      // console.log(
+      //   "This is All of My methid I am ble To get Here ",
+      //   DataService,
+      // );
+      const res = await DataService.CustomerLogin(Payload);
+      console.log(
+        "This is My Responce Come From the Login Api",
+        JSON.stringify(res.data),
+      );
+      if (res?.data?.token) {
+        const { token, safeUser } = res.data;
+        await AsyncStorage.setItem("userToken", token);
 
-    // ✅ after successful login
-    router.replace("/(tabs)/Home");
+        // Store user profile
+        await AsyncStorage.setItem("userProfile", JSON.stringify(safeUser));
+        console.log(" User profile And Token stored successfully");
+        ToastAndroid.show("Login Successful ✅", ToastAndroid.LONG);
+        router.replace("/(tabs)/Home");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

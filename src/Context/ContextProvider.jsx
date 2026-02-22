@@ -1,10 +1,11 @@
 import { AppContext } from "./AppContext";
-import React from "react";
 import { useEffect, useState } from "react";
 import DataService from "../api/Api";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const ContextProvider = ({ children }) => {
   const [GetDoctorCards, setGetDoctorCards] = useState(null);
+  const [userProfile, setuserProfile] = useState([]);
 
   const getAllDoctorsList = async () => {
     try {
@@ -23,9 +24,21 @@ export const ContextProvider = ({ children }) => {
   useEffect(() => {
     getAllDoctorsList();
   }, []);
+  useEffect(() => {
+    const getuserProfile = async () => {
+      const getUser = await AsyncStorage.getItem("userProfile");
+      if (getUser) {
+        const parsedUserdata = JSON.parse(getUser);
+        console.log("This is User profile data ", parsedUserdata);
+        setuserProfile(parsedUserdata);
+      }
+    };
+    getuserProfile();
+  }, []);
 
   const values = {
     GetDoctorCards,
+    userProfile,
   };
 
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;

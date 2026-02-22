@@ -9,7 +9,7 @@ class DataService {
     return api.post(`/Register`, Payload);
   }
   CustomerLogin(Payload) {
-    return api.post(`Login`, Payload);
+    return api.post(`/Login`, Payload);
   }
   GetCustomerprofiledata() {
     return api.get(`/Userprofile`);

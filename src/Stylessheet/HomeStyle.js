@@ -325,3 +325,46 @@ export const DoctorDetailsStyle = StyleSheet.create({
     fontWeight: "bold",
   },
 });
+
+export const ProfileStyles = StyleSheet.create({
+  container: {
+    padding: 20,
+    backgroundColor: "#f8f9fa",
+    flexGrow: 1,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 20,
+    textAlign: "center",
+  },
+  inputBox: {
+    marginBottom: 15,
+  },
+  label: {
+    fontSize: 14,
+    color: "#555",
+    marginBottom: 5,
+  },
+  input: {
+    backgroundColor: "#fff",
+    padding: 12,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: "#ddd",
+    fontSize: 16,
+  },
+  Logoutbtn: {
+    backgroundColor: "#F44336",
+    padding: 7,
+    display: "flex",
+    flexDirection: "row",
+    borderRadius: 10,
+    justifyContent: "center",
+    gap: 3,
+  },
+  LogoutText: {
+    fontWeight: "600",
+    color: "#fff",
+  },
+});
