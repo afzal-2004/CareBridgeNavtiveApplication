@@ -10,27 +10,51 @@ import { useState } from "react";
 import { router } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { RegisterStyles } from "../../src/Stylessheet/AuthStyle";
+import DataService from "../../src/api/Api";
+import { ToastAndroid } from "react-native";
 
 const Register = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [name, setName] = useState("Afzal");
+  const [email, setEmail] = useState("Sample@gmail.com");
+  const [password, setPassword] = useState("1234");
+  const [mobileNumber, setmobileNumber] = useState("1234567890");
+
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleRegister = () => {
-    if (!name || !email || !password || !confirmPassword) {
+  const handleRegister = async () => {
+    if (!name || !email || !password) {
       alert("Please fill all fields");
       return;
     }
 
-    if (password !== confirmPassword) {
-      alert("Passwords do not match");
-      return;
+    const Payload = {
+      name: name,
+      email: email,
+      Mobilenumner: mobileNumber,
+      Password: password,
+      profilePicture: "",
+      Address: "",
+      Gender: "",
+      DOB: "",
+    };
+
+    console.log("This is The Payload We Send In backend Side ", Payload);
+    try {
+      const res = await DataService.CustomerRegister(Payload);
+      console.log(
+        "This is My Responce Come From the Register Api",
+        JSON.stringify(res.data),
+      );
+      if (res?.data?.RegisterUser) {
+        ToastAndroid.show("Registeered Sucefully", ToastAndroid.LONG);
+        // ToastAndroid.LONG("Register Sucefull");
+        router.replace("/auth/Login");
+      }
+    } catch (error) {
+      console.log(error);
     }
 
     // ✅ after successful registration
-    router.replace("/auth/Login");
   };
 
   return (
@@ -62,6 +86,19 @@ const Register = () => {
         />
       </View>
 
+      {/*  Mobile Number */}
+
+      <View style={RegisterStyles.inputBox}>
+        <Ionicons name="mail-outline" size={20} color="#888" />
+        <TextInput
+          placeholder="Mobile Number"
+          placeholderTextColor="#999"
+          style={RegisterStyles.input}
+          value={mobileNumber}
+          onChangeText={setmobileNumber}
+        />
+      </View>
+
       {/* Password */}
       <View style={RegisterStyles.inputBox}>
         <Ionicons name="lock-closed-outline" size={20} color="#888" />
@@ -80,19 +117,6 @@ const Register = () => {
             color="#888"
           />
         </TouchableOpacity>
-      </View>
-
-      {/* Confirm Password */}
-      <View style={RegisterStyles.inputBox}>
-        <Ionicons name="lock-open-outline" size={20} color="#888" />
-        <TextInput
-          placeholder="Confirm Password"
-          placeholderTextColor="#999"
-          secureTextEntry={!showPassword}
-          style={RegisterStyles.input}
-          value={confirmPassword}
-          onChangeText={setConfirmPassword}
-        />
       </View>
 
       {/* Register Button */}

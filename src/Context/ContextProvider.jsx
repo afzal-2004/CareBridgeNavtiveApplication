@@ -2,10 +2,13 @@ import { AppContext } from "./AppContext";
 import { useEffect, useState } from "react";
 import DataService from "../api/Api";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { ToastAndroid } from "react-native";
+import { router } from "expo-router";
 
 export const ContextProvider = ({ children }) => {
   const [GetDoctorCards, setGetDoctorCards] = useState(null);
   const [userProfile, setuserProfile] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const getAllDoctorsList = async () => {
     try {
@@ -24,21 +27,32 @@ export const ContextProvider = ({ children }) => {
   useEffect(() => {
     getAllDoctorsList();
   }, []);
+
   useEffect(() => {
-    const getuserProfile = async () => {
-      const getUser = await AsyncStorage.getItem("userProfile");
-      if (getUser) {
-        const parsedUserdata = JSON.parse(getUser);
-        console.log("This is User profile data ", parsedUserdata);
-        setuserProfile(parsedUserdata);
+    const loadUser = async () => {
+      const user = await AsyncStorage.getItem("userProfile");
+
+      if (user) {
+        setuserProfile(JSON.parse(user));
       }
+
+      setLoading(false);
     };
-    getuserProfile();
+
+    loadUser();
   }, []);
+
+  const LogoutFunction = async () => {
+    await AsyncStorage.multiRemove(["userToken", "userProfile"]);
+    ToastAndroid.show("Logout  Successful", ToastAndroid.LONG);
+    router.replace("/auth");
+  };
 
   const values = {
     GetDoctorCards,
     userProfile,
+    LogoutFunction,
+    loading,
   };
 
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;

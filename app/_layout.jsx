@@ -6,20 +6,27 @@ import { COLORS, SPACING } from "@/src/Constant/Theme";
 import { ContextProvider } from "../src/Context/ContextProvider";
 import { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
 export default function RootLayout() {
   const [isAuthencation, setisAuthencation] = useState(false);
- 
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    const getUserTaoken = async () => {
+    const getUserToken = async () => {
       const Token = await AsyncStorage.getItem("userToken");
+      console.log("Jwt Token", Token);
+
       if (Token) {
-        console.log("Jwt Token", Token);
         setisAuthencation(true);
       }
+
+      setLoading(false);
     };
-    getUserTaoken();
+
+    getUserToken();
   }, []);
+  if (loading) {
+    return null; // or splash screen
+  }
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "black" }}>
@@ -27,11 +34,7 @@ export default function RootLayout() {
         <StatusBar style="light" />
         <View style={styles.container}>
           <Stack screenOptions={{ headerShown: false }}>
-            {isAuthencation ? (
-              <Stack.Screen name="auth" />
-            ) : (
-              <Stack.Screen name="(tabs)" />
-            )}
+            <Stack.Screen name={isAuthencation ? "(tabs)" : "auth"} />
           </Stack>
         </View>
       </ContextProvider>

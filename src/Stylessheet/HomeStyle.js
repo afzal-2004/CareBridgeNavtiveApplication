@@ -329,8 +329,9 @@ export const DoctorDetailsStyle = StyleSheet.create({
 export const ProfileStyles = StyleSheet.create({
   container: {
     padding: 20,
+    paddingBottom: 100,
     backgroundColor: "#f8f9fa",
-    flexGrow: 1,
+    // flexGrow: 1,
   },
   title: {
     fontSize: 24,

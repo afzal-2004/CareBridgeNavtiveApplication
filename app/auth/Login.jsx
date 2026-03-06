@@ -27,11 +27,6 @@ const Login = () => {
         emailOrMobile: email,
         Password: password,
       };
-      // console.log("This is Payload i am Sending In backend Side ", Payload);
-      // console.log(
-      //   "This is All of My methid I am ble To get Here ",
-      //   DataService,
-      // );
       const res = await DataService.CustomerLogin(Payload);
       console.log(
         "This is My Responce Come From the Login Api",
@@ -43,7 +38,7 @@ const Login = () => {
 
         // Store user profile
         await AsyncStorage.setItem("userProfile", JSON.stringify(safeUser));
-        console.log(" User profile And Token stored successfully");
+        // console.log(" User profile And Token stored successfully");
         ToastAndroid.show("Login Successful ✅", ToastAndroid.LONG);
         router.replace("/(tabs)/Home");
       }

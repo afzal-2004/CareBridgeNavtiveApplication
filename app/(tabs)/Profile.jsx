@@ -13,7 +13,8 @@ import { ProfileStyles } from "../../src/Stylessheet/HomeStyle";
 import AntDesign from "@expo/vector-icons/AntDesign";
 
 const Profile = () => {
-  const { userProfile } = useContext(AppContext);
+  const { userProfile, LogoutFunction, loading } = useContext(AppContext);
+
   return (
     <ScrollView contentContainerStyle={ProfileStyles.container}>
       <Text style={ProfileStyles.title}>My Profile</Text>
@@ -49,38 +50,38 @@ const Profile = () => {
       </View>
 
       {/* Gender */}
-      <View style={ProfileStyles.inputBox}>
+      {/* <View style={ProfileStyles.inputBox}>
         <Text style={ProfileStyles.label}>Gender</Text>
         <TextInput
           value={userProfile?.Gender || "Not Specified"}
           style={ProfileStyles.input}
           editable={false}
         />
-      </View>
+      </View> */}
 
       {/* DOB */}
-      <View style={ProfileStyles.inputBox}>
+      {/* <View style={ProfileStyles.inputBox}>
         <Text style={ProfileStyles.label}>Date of Birth</Text>
         <TextInput
           value={userProfile?.DOB || "Not Specified"}
           style={ProfileStyles.input}
           editable={false}
         />
-      </View>
+      </View> */}
 
       {/* Address */}
-      <View style={ProfileStyles.inputBox}>
+      {/* <View style={ProfileStyles.inputBox}>
         <Text style={ProfileStyles.label}>Address</Text>
         <TextInput
           value={userProfile?.Addreess || "Not Provided"}
           style={ProfileStyles.input}
           editable={false}
         />
-      </View>
+      </View> */}
 
       <TouchableOpacity
         style={ProfileStyles.Logoutbtn}
-        onPress={() => alert("Are You Sure You want Logout From here ")}
+        onPress={() => LogoutFunction()}
       >
         <Text style={ProfileStyles?.LogoutText}>Logout</Text>
         <AntDesign name="logout" size={24} color="white" />
